@@ -2,28 +2,28 @@
 <html>
 <head>
     <title>Travel Recommendation</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-    <div id="navbar">
-        <header>
-            <img src="assets/images/planelo.png">
+    <div id="nav-container">
+        <header id="nav-header">
+            <span> <img src="./assets/images/planelogo.png" width="50" height="30"> </span>
             <span>TravelBoom</span>
         </header>
-        <nav>
-            <div id="nav-elements">
-                <a href="#">Home</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact Us</a>
+        <nav id="nav-nav">
+            <div id="nav-anchors">
+                <span class="nav-a"> <a href="#">Home</a> </span>
+                <span class="nav-a"> <a href="#">About Us</a> </span>
+                <span class="nav-a"> <a href="#">Contact Us</a> </span>
             </div>
         </nav>
-        <div id="searchbar">
-            <input id="searchbarInput" placeholder="Enter a destination or keyword">
-            <button id="searchbarSearchButton">Search</button>
-            <button id="searchbarClearButton">Clear</button>
+        <div id="nav-search">
+            <span id="search-space"> <input id="searchbarInput" placeholder="Enter a destination or keyword"> </span>
+            <span class="search-button-span"> <button id="searchbarSearchButton" class="search-button">Search</button> </span>
+            <span class="search-button-span"> <button id="searchbarClearButton" class="search-button" >Clear</button> </span>
         </div>
     </div>
 
-    <srcipt src="assets/js/main_script.js"></script>
+    <srcipt src="./assets/js/main_script.js"></script>
 </body>
 </html>

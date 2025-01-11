@@ -1,0 +1,98 @@
+body {
+    background-color: grey;
+    color: blue;
+    font-size: medium;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+/* NAVIGATION BAR */
+
+#nav-container {
+    background-color: black;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 70px;
+
+    margin: 5px;
+}
+
+/* Sizing Main Header Containers */
+#nav-header {
+    width: 20%;
+    
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#nav-nav {
+    width: 50%;
+}
+
+#nav-search {
+    width: 30%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border-radius: 20px;
+    padding: 0px 0px;
+    background-color: white;
+    color: black;
+
+    margin: 5px 10px;
+    padding: 5px 5px;
+}
+
+/* Styling Navigation */
+#nav-anchors {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-a{
+    padding: 5px 40px;
+    text-align: center;
+}
+
+/* Search Span */
+
+#search-space {
+    width: 70%;
+    text-align: left;
+    padding: auto 5px;
+    margin: auto 5px;
+    border: none;
+}
+
+.search-button-span {
+    width: 15%;
+}
+
+/* Search Contents */
+.search-button {
+    border: none;
+    border-radius: 5px;
+    padding: 5px 5px ;
+    margin: 0px;
+    font-size: medium;
+    background-color: black;
+    color: white;
+}
+
+#searchbarInput{
+    width: 100%;
+    border: none;
+    margin: 5px;
+    padding: 5px;
+}
