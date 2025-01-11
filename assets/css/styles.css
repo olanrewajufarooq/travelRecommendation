@@ -54,6 +54,11 @@ a {
     padding: 5px 5px;
 }
 
+/* Staying Logo and Name */
+.header-logo, .header-name {
+    
+}
+
 /* Styling Navigation */
 #nav-anchors {
     display: flex;
@@ -63,6 +68,10 @@ a {
 .nav-a{
     padding: 5px 40px;
     text-align: center;
+}
+
+.nav-a a{
+    font-size: larger;
 }
 
 /* Search Span */
@@ -95,4 +104,5 @@ a {
     border: none;
     margin: 5px;
     padding: 5px;
+    font-size: medium;
 }
