@@ -6,12 +6,12 @@
         "cities": [
           {
             "name": "Sydney, Australia",
-            "imageUrl": "../images/sydney_australia.jpg",
+            "imageUrl": "./assets/images/sydney_australia.jpg",
             "description": "A vibrant city known for its iconic landmarks like the Sydney Opera House and Sydney Harbour Bridge."
           },
           {
             "name": "Melbourne, Australia",
-            "imageUrl": "../images/melbourne_australia.jpg",
+            "imageUrl": "./assets/images/melbourne_australia.jpg",
             "description": "A cultural hub famous for its art, food, and diverse neighborhoods."
           }
         ]
@@ -22,12 +22,12 @@
         "cities": [
           {
             "name": "Tokyo, Japan",
-            "imageUrl": "../images/tokyo_japan.jpg",
+            "imageUrl": "./assets/images/tokyo_japan.jpg",
             "description": "A bustling metropolis blending tradition and modernity, famous for its cherry blossoms and rich culture."
           },
           {
             "name": "Kyoto, Japan",
-            "imageUrl": "../images/kyoto_japan.jpg",
+            "imageUrl": "./assets/images/kyoto_japan.jpg",
             "description": "Known for its historic temples, gardens, and traditional tea houses."
           }
         ]
@@ -38,12 +38,12 @@
         "cities": [
           {
             "name": "Rio de Janeiro, Brazil",
-            "imageUrl": "../images/rio_de_janeiro_brazil.jpg",
+            "imageUrl": "./assets/images/rio_de_janeiro_brazil.jpg",
             "description": "A lively city known for its stunning beaches, vibrant carnival celebrations, and iconic landmarks."
           },
           {
             "name": "São Paulo, Brazil",
-            "imageUrl": "../images/sao_paulo_brazil.jpg",
+            "imageUrl": "./assets/images/sao_paulo_brazil.jpg",
             "description": "The financial hub with diverse culture, arts, and a vibrant nightlife."
           }
         ]
@@ -53,13 +53,13 @@
       {
         "id": 1,
         "name": "Makkah, Saudi Arabia",
-        "imageUrl": "../images/makkah_saudi_arabia.jpg",
+        "imageUrl": "./assets/images/makkah_saudi_arabia.jpg",
         "description": "A holiest city in Islam, home to the Masjid al-Haram and the Kaaba, it is the spiritual center for millions of Muslims around the world, drawing pilgrims annually for the Hajj pilgrimage."
       },
       {
         "id": 2,
         "name": "Medina, Saudi Arabia",
-        "imageUrl": "../images/medina_saudi_arabia.jpg",
+        "imageUrl": "./assets/images/medina_saudi_arabia.jpg",
         "description": "Second holiest city in Islam, known for the Prophet’s Mosque (Al-Masjid an-Nabawi), a place of deep religious significance for Muslims."
       }
     ],
@@ -67,13 +67,13 @@
       {
         "id": 1,
         "name": "Bora Bora, French Polynesia",
-        "imageUrl": "../images/bora_bora.jpg",
+        "imageUrl": "./assets/images/bora_bora.jpg",
         "description": "An island known for its stunning turquoise waters and luxurious overwater bungalows."
       },
       {
         "id": 2,
         "name": "Copacabana Beach, Brazil",
-        "imageUrl": "../images/copacabana_beach.jpg",
+        "imageUrl": "./assets/images/copacabana_beach.jpg",
         "description": "A famous beach in Rio de Janeiro, Brazil, with a vibrant atmosphere and scenic views."
       }
     ]
