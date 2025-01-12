@@ -2,7 +2,7 @@
     visibility: hidden;
 }
 
-#home-container {
+#contact-container {
     color: white;
     width: 20vw;
     height: 40vh;
@@ -16,26 +16,26 @@
     align-items: left;
 }
 
-.home-content {
+.contact-content {
     display: block;
     padding: 10px 0px;
     margin: 0px;
 }
 
-.home-content h1{
+.contact-content h1{
     font-family: 'Arial Narrow Bold', sans-serif;
     font-weight: 800;
     font-size: 3em;
 }
 
-.home-content p {
+.contact-content p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
     font-weight: 600;
     display: inline-block;
 }
 
-.home-content button {
+.contact-content button {
     background-color: rgb(11, 170, 159);
     color: rgb(255, 255, 255);
 

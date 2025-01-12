@@ -2,50 +2,96 @@
     visibility: hidden;
 }
 
-#home-container {
+#about-container {
     color: white;
-    width: 20vw;
-    height: 40vh;
+    width: 60vw;
+    height: 60vh;
     position: absolute;
     left: 20vw;
-    top: 20vh;
+    top: 10vh;
     
     display: flex;
     flex-flow: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: left;
 }
 
-.home-content {
+.about-content {
     display: block;
-    padding: 10px 0px;
-    margin: 0px;
+    padding: 10px 20px;
+    margin: 20px;
 }
 
-.home-content h1{
+#about-content-h{
     font-family: 'Arial Narrow Bold', sans-serif;
-    font-weight: 800;
-    font-size: 3em;
+    font-weight: 300;
+    font-size: 2em;
 }
 
-.home-content p {
+#about-content-text{
+    background-color: rgba(0, 0, 0, 0.5);
+
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
-    font-weight: 600;
+    font-weight: 200;
     display: inline-block;
 }
 
-.home-content button {
-    background-color: rgb(11, 170, 159);
+#about-content-team{
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+}
+
+#team-header, .team-member {
+    width: 20%;
+    padding: 5px;
+    margin: 5px;
+}
+
+#team-header h2 {
+    font-family: 'Arial Narrow Bold', sans-serif;
+    font-weight: 600;
+    font-size: x-large;
+}
+
+.team-member{
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+}
+
+.team-member-name, .team-member-role, .team-member-button {
+    display: block;
+}
+
+.team-member-name {
+    font-size: medium;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.team-member-role {
+    font-size: small;
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.team-member-button button {
+    background-color: rgb(45, 45, 139);
     color: rgb(255, 255, 255);
 
     padding: 5px 20px;
     margin: 5px 0px;
+    width: 90%;
     
     border: none;
     border-radius: 10px;
 
-    font-size: 1.2em;
-    font-weight: 800;
+    font-size: medium;
+    font-weight: light;
 }
 
