@@ -4,14 +4,13 @@
 
 #contact-container {
     color: white;
-    width: 20vw;
+    width: 60vw;
     height: 40vh;
     position: absolute;
     left: 20vw;
-    top: 20vh;
+    top: 30vh;
     
     display: flex;
-    flex-flow: column;
     justify-content: space-between;
     align-items: left;
 }
@@ -35,16 +34,33 @@
     display: inline-block;
 }
 
-.contact-content button {
-    background-color: rgb(11, 170, 159);
+.contact-form {
+    width: 40%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.contact-form input, .contact-form textarea {
+    border: solid;
+    border-color: white;
+    border-radius: 5px;
+
+    display: inline-block;
+    width: 100%;
+}
+
+.contact-form button {
+    background-color: rgb(45, 45, 139);
     color: rgb(255, 255, 255);
 
     padding: 5px 20px;
     margin: 5px 0px;
+    width: 100%;
     
     border: none;
     border-radius: 10px;
 
-    font-size: 1.2em;
-    font-weight: 800;
+    font-size: medium;
+    font-weight: light;
 }
