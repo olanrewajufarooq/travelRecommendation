@@ -4,7 +4,7 @@
 
 #contact-container {
     color: white;
-    width: 60vw;
+    width: 70vw;
     height: 40vh;
     position: absolute;
     left: 20vw;
@@ -37,17 +37,20 @@
 .contact-form {
     width: 40%;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
 
 }
 
 .contact-form input, .contact-form textarea {
     border: solid;
-    border-color: white;
+    border-color: rgb(255, 255, 255);
     border-radius: 5px;
+    border-width: thin;
 
     display: inline-block;
     width: 100%;
+
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .contact-form button {
