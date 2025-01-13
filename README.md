@@ -1,6 +1,6 @@
 # Travel Recommendation Project
 
-This project is a part of a JavaScript learning experience. It leverages HTML, CSS, and JavaScript to build a simple travel recommendation tool. The tool allows users to search for various travel destinations such as beaches, temples, and countries, and displays relevant results dynamically.
+This project is a part of a JavaScript learning experience in the IBM JavaScript Programming Essentials course on [Coursera](https://www.coursera.org/learn/javascript-programming-essentials/). It leverages HTML, CSS, and JavaScript to build a simple travel recommendation tool. The tool allows users to search for various travel destinations such as beaches, temples, and countries, and displays relevant results dynamically.
 
 ## Tools & Technologies Learned
 
@@ -9,7 +9,7 @@ This project is a part of a JavaScript learning experience. It leverages HTML, C
 - Forms and input fields.
 
 ### CSS:
-- Layouts (Flexbox, Grid).
+- Layouts (Flex, Blocks).
 - Absolute Positioning for elements.
 - Styling for dynamic elements (e.g., results, messages).
 - Custom styling for hover effects and transitions.
@@ -25,16 +25,8 @@ This project is a part of a JavaScript learning experience. It leverages HTML, C
 - **Search Functionality**: 
   - The search allows the user to type in keywords related to travel destinations.
   - The user can search for keywords such as "beach", "temple", "country", and their plural variations.
-  - Specific country names (e.g., Saudi Arabia, Brazil) and their associated cities (e.g., Makkah, Medina, Rio de Janeiro) can also be searched.
-
-- **Results Display**: 
-  - After a search, the results are displayed dynamically within the results container.
-  - If no results are found, a "No results found" message is displayed.
-  - If the search field is empty, a prompt to enter a search keyword is shown.
-
-- **Clear Search**: 
-  - The user can clear the search input and reset the results view.
-
+  - Specific country names (e.g., Saudi Arabia, Brazil) and their associated cities (e.g., Makkah, Medina, Rio de Janeiro) can also be searched. More details in [JSON File](./assets/json/travel_recommendation_api.json).
+    
 - **Desktop-Only Design**: 
   - The project is designed and optimized strictly for desktop use, and does not include responsive design for mobile views.
 
@@ -49,13 +41,6 @@ This project is a part of a JavaScript learning experience. It leverages HTML, C
 4. Click the "Search" button to view the results.
 5. Explore the About and Contact page.
 
-## Example Searches
-
-- Searching for **beach** or **beaches** will return results related to popular beaches (e.g., Bora Bora, Copacabana).
-- Searching for **temple** or **temples** will return results for famous temples (e.g., Makkah, Medina).
-- Searching for **country** or **countries** will show results from different countries and their cities.
-- Searching for a specific **country name** (e.g., **Brazil**, **Saudi Arabia**) will show cities within that country (e.g., Rio de Janeiro for Brazil, Makkah and Medina for Saudi Arabia).
-
 ## Known Issues
 
 - The project is **not designed for mobile view**.
@@ -64,17 +49,8 @@ This project is a part of a JavaScript learning experience. It leverages HTML, C
 ## Future Improvements
 
 - Make the project responsive and mobile-friendly.
-- Add more destinations, countries, and cities to expand the search options.
-- Enhance the UI with more interactive elements (e.g., maps, detailed city information).
+- Use external APIs to improve search.
 - Optimize search with fuzzy matching and advanced filtering.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Thank you for exploring this project. Happy coding!
 
 ---
 
