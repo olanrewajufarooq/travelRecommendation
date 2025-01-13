@@ -1,0 +1,94 @@
+/* Results Container */
+#results {
+    position: absolute;
+    top: 10vh;
+    right: 5vw;
+    width: 20vw;
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    visibility: hidden; /* Initially hidden */
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* In case no results are found */
+/* #results p {
+    font-size: 1.2em;
+    color: #ff0000;
+    text-align: center;
+    padding: 20px;
+} */
+
+/* If result is returned */
+
+/* Result Item */
+.result-item {
+    background-color: white;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    height: 45%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Hover effect for result items */
+.result-item:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.02);
+}
+
+/* Result Item Image */
+.result-img {
+    /* border-radius: 8px; */
+    margin: 0px;
+
+    display: block;
+    height: 80%;
+}
+
+.result-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.result-text {
+    display: block;
+    height: 20%;
+}
+
+/* Result Item Header (name) */
+.result-item h3 {
+    font-size: large;
+    font-weight: bold;
+    color: #333;
+    margin: 2px;
+
+    display: inline-block;
+    height: 10%;
+}
+
+/* Result Item Description */
+.result-item p {
+    font-size: x-small;
+    color: #555;
+    margin: 2px;
+
+    display: inline-block;
+    height: 20%;
+    text-align: left;
+}
+
+
