@@ -1,123 +1,209 @@
-let loadedData;
+let loadedData = {};
 
+// Get references to the necessary DOM elements
 const resultsDiv = document.getElementById('results');
-resultsDiv.style.visibility = "hidden"; // Initially hidden
+const noResultMessage = document.getElementById('no-result');
+const keywordMessage = document.getElementById('keyword-message');
+
+// Initialize visibility
+initializeVisibility();
 
 // Fetch the JSON data
 fetch('./assets/json/travel_recommendation_api.json')
   .then(response => response.json())
   .then(data => {
-    console.log(data);
     loadedData = data;
   })
-  .catch(error => console.error('Error:', error));
+  .catch(error => console.error('Error loading the data:', error));
 
-// Function to perform the search
+// Initialize event listeners
+initializeEventListeners();
+
+// Initialize all event listeners
+function initializeEventListeners() {
+  // Event listener for the "Search" button
+  document.getElementById('searchbarSearchButton').addEventListener('click', performSearch);
+  
+  // Event listener for the "Enter" key
+  document.getElementById('searchbarInput').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      performSearch();  // Trigger the search function when Enter is pressed
+    }
+  });
+  
+  // Event listener for the "Clear" button
+  document.getElementById('searchbarClearButton').addEventListener('click', clearSearch);
+}
+
+// Initialize visibility of elements
+function initializeVisibility() {
+  resultsDiv.style.visibility = "hidden";
+  noResultMessage.style.visibility = "hidden";
+  keywordMessage.style.visibility = "hidden";
+}
+
+// Perform the search when the user clicks the "Search" button or presses "Enter"
 function performSearch() {
-  let searchQuery = document.getElementById('searchbarInput').value.trim().toLowerCase();
-  let results = [];
-
-  // Display a message in the results div if the search query is empty
+  const searchQuery = getSearchQuery();
+  
   if (searchQuery === '') {
-    resultsDiv.innerHTML = "<p>Please enter a search keyword.</p>";
-    resultsDiv.style.visibility = "hidden"; // Hide the results div if no search query
+    showEmptyQueryMessage();
     return;
   }
 
-  // Regular expressions to match categories based on search input
-  const beachRegex = /\bbeach(es)?\b/i;
-  const templeRegex = /\btemple(s)?\b/i;
-  const countryRegex = /\bcountr(y|ies)?\b/i;
+  const results = searchResults(searchQuery);
+  handleResultsVisibility(results);
+}
 
-  // Check if the search query matches any of the categories using RegEx
-  if (beachRegex.test(searchQuery)) {
+// Get the value of the search query (normalized to lowercase)
+function getSearchQuery() {
+  return document.getElementById('searchbarInput').value.trim().toLowerCase();
+}
+
+// Show the message when the query is empty
+function showEmptyQueryMessage() {
+  resultsDiv.style.visibility = "visible";
+  noResultMessage.style.visibility = "hidden";
+  keywordMessage.style.visibility = "visible";
+  resultsDiv.innerHTML = '';
+}
+
+// Search results based on the query
+function searchResults(searchQuery) {
+  let results = [];
+
+  // Check for beaches, temples, and countries
+  if (searchQuery.includes('beach')) {
     results = results.concat(loadedData.beaches);
   }
-  if (templeRegex.test(searchQuery)) {
+
+  if (searchQuery.includes('temple')) {
     results = results.concat(loadedData.temples);
   }
 
-  // Handle the case where the search query matches "country" or "countries"
-  // Handle the case where the search query matches "country" or "countries"
-  if (countryRegex.test(searchQuery)) {
-    // Show cities from all countries if "country" or "countries" is searched
-    loadedData.countries.forEach(country => {
+  // Check for "countr" to return all cities
+  if (searchQuery.includes('countr')) {
+    results = results.concat(searchAllCities());
+  } else {
+    // If it's not "countr", check if it's a specific country or city
+    results = results.concat(searchCitiesAndCountries(searchQuery));
+    
+    // Check if the query matches a specific country in the beach or temple data
+    results = results.concat(searchBeachesAndTemplesForCountry(searchQuery));
+  }
+
+  return results;
+}
+
+// Search through all cities globally
+function searchAllCities() {
+  let allCities = [];
+  loadedData.countries.forEach(country => {
+    country.cities.forEach(city => {
+      allCities.push({
+        name: `${city.name}, ${country.name}`,
+        description: city.description,
+        imageUrl: city.imageUrl
+      });
+    });
+  });
+  return allCities;
+}
+
+// Search through cities and countries based on the query
+function searchCitiesAndCountries(searchQuery) {
+  let results = [];
+
+  // First, search for matching countries
+  loadedData.countries.forEach(country => {
+    if (country.name.toLowerCase().includes(searchQuery)) {
+      // If the country matches, include its cities
       country.cities.forEach(city => {
         results.push({
-          name: `${city.name}, ${country.name}`, // Format: "city, country"
+          name: `${city.name}, ${country.name}`,
           description: city.description,
           imageUrl: city.imageUrl
         });
       });
-    });
-  } else {
-    // Handle specific country search
-    loadedData.countries.forEach(country => {
-      // If search query matches a specific country name
-      if (country.name.toLowerCase().includes(searchQuery)) {
-        country.cities.forEach(city => {
+    } else {
+      // Also check for city matches inside this country
+      country.cities.forEach(city => {
+        if (city.name.toLowerCase().includes(searchQuery)) {
           results.push({
-            name: `${city.name}, ${country.name}`, // Format: "city, country"
+            name: `${city.name}, ${country.name}`,
             description: city.description,
             imageUrl: city.imageUrl
           });
-        });
-      }
-    });
-  }
+        }
+      });
+    }
+  });
 
-  // Display the results if available
-  if (results.length > 0) {
-    displayResults(results);
-  } else {
-    resultsDiv.innerHTML = "<p>No results found.</p>";
-  }
-
-  // Make results div visible
-  resultsDiv.style.visibility = "visible";
+  return results;
 }
 
-// Search button event listener
-document.getElementById('searchbarSearchButton').addEventListener('click', performSearch);
+// Search through beaches and temples for a specific country
+function searchBeachesAndTemplesForCountry(searchQuery) {
+  let results = [];
 
-// Listen for the "Enter" key to trigger the search
-document.getElementById('searchbarInput').addEventListener('keydown', function(event) {
-  if (event.key === 'Enter') {
-    performSearch(); // Trigger the search function when Enter is pressed
+  // Check for country in beaches
+  loadedData.beaches.forEach(beach => {
+    if (beach.name.toLowerCase().includes(searchQuery)) {
+      results.push(beach);
+    }
+  });
+
+  // Check for country in temples
+  loadedData.temples.forEach(temple => {
+    if (temple.name.toLowerCase().includes(searchQuery)) {
+      results.push(temple);
+    }
+  });
+
+  return results;
+}
+
+// Handle the visibility of results and messages
+function handleResultsVisibility(results) {
+  resultsDiv.style.visibility = "visible";
+  
+  if (results.length > 0) {
+    displayResults(results);
+    noResultMessage.style.visibility = "hidden";
+  } else {
+    noResultMessage.style.visibility = "visible";
+    resultsDiv.innerHTML = '';
   }
-});
+}
 
-// Clear button functionality
-document.getElementById('searchbarClearButton').addEventListener('click', function() {
-  document.getElementById('searchbarInput').value = ''; // Clear search input
-  resultsDiv.innerHTML = ''; // Clear previous results
-  resultsDiv.style.visibility = "hidden"; // Hide results div when cleared
-});
-
-// Display results on the page
+// Display the results on the page
 function displayResults(results) {
-  resultsDiv.innerHTML = ''; // Clear previous results
-
-  // Create a result item for each found result
+  resultsDiv.innerHTML = ''; // Clear any previous results
   results.forEach(item => {
-    const resultItem = document.createElement('div');
-    resultItem.classList.add('result-item');
-
-    let name, imageUrl, description;
-
-    name = item.name; // "city, country"
-    description = item.description;
-    imageUrl = item.imageUrl;
-
-    // Add the result item to the results div
-    resultItem.innerHTML = `
-      <span class="result-img"><img src="${imageUrl}" alt="${name}" /></span>
-      <div class="result-text">
-        <h3>${name}</h3>
-        <p>${description}</p>
-      </div>
-    `;
-
+    const resultItem = createResultItem(item);
     resultsDiv.appendChild(resultItem);
   });
+}
+
+// Create a result item element for each found result
+function createResultItem(item) {
+  const resultItem = document.createElement('div');
+  resultItem.classList.add('result-item');
+  resultItem.innerHTML = `
+    <span class="result-img"><img src="${item.imageUrl}" alt="${item.name}" /></span>
+    <div class="result-text">
+      <h3>${item.name}</h3>
+      <p>${item.description}</p>
+    </div>
+  `;
+  return resultItem;
+}
+
+// Clear the search input and hide all messages and results
+function clearSearch() {
+  document.getElementById('searchbarInput').value = '';
+  resultsDiv.style.visibility = "hidden";
+  noResultMessage.style.visibility = "hidden";
+  keywordMessage.style.visibility = "hidden";
+  resultsDiv.innerHTML = '';
 }
