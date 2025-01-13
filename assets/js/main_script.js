@@ -101,7 +101,7 @@ function searchAllCities() {
   loadedData.countries.forEach(country => {
     country.cities.forEach(city => {
       allCities.push({
-        name: `${city.name}, ${country.name}`,
+        name: `${city.name}`,
         description: city.description,
         imageUrl: city.imageUrl
       });
@@ -120,7 +120,7 @@ function searchCitiesAndCountries(searchQuery) {
       // If the country matches, include its cities
       country.cities.forEach(city => {
         results.push({
-          name: `${city.name}, ${country.name}`,
+          name: `${city.name}`,
           description: city.description,
           imageUrl: city.imageUrl
         });
@@ -130,7 +130,7 @@ function searchCitiesAndCountries(searchQuery) {
       country.cities.forEach(city => {
         if (city.name.toLowerCase().includes(searchQuery)) {
           results.push({
-            name: `${city.name}, ${country.name}`,
+            name: `${city.name}`,
             description: city.description,
             imageUrl: city.imageUrl
           });
