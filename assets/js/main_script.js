@@ -38,10 +38,23 @@ function performSearch() {
   }
 
   // Handle the case where the search query matches "country" or "countries"
+  // Handle the case where the search query matches "country" or "countries"
   if (countryRegex.test(searchQuery)) {
+    // Show cities from all countries if "country" or "countries" is searched
     loadedData.countries.forEach(country => {
+      country.cities.forEach(city => {
+        results.push({
+          name: `${city.name}, ${country.name}`, // Format: "city, country"
+          description: city.description,
+          imageUrl: city.imageUrl
+        });
+      });
+    });
+  } else {
+    // Handle specific country search
+    loadedData.countries.forEach(country => {
+      // If search query matches a specific country name
       if (country.name.toLowerCase().includes(searchQuery)) {
-        // Loop over the cities and add each city with "city, country" format to the results
         country.cities.forEach(city => {
           results.push({
             name: `${city.name}, ${country.name}`, // Format: "city, country"
